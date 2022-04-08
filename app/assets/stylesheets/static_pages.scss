@@ -49,6 +49,16 @@ section {
             border-radius: 4px;
         }
     }
+    .drop_link_to {
+        background: #fff;
+        li a {
+            color: $sky;
+            &:hover {
+                background: $sky;
+                color: #fff;
+            }
+        }
+    }
 }
 
 footer {
