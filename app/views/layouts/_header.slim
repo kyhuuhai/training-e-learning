@@ -5,4 +5,14 @@ header (class ="navbar navbar-fixed-top navbar-inverse nav-header")
           ul (class ="nav navbar-nav navbar-right")
             li = link_to "Home" ,'#'
             li = link_to "Course" ,'#'
-            li = link_to "Contact" ,'#'
+            li.dropdown
+              a.dropdown-toggle data-toggle="dropdown" href="#" 
+                | Word list
+                b.caret
+              ul.dropdown-menu.drop_link_to
+                li = link_to"Word course 01" 
+                li = link_to"Word course 02" 
+                li = link_to"Word course 03" 
+            li = link_to "User" ,'#'
+            li = link_to "Login" ,'#'
+

@@ -71,6 +71,16 @@ p {
             color: #333;
         }
     }
+    .drop_link_to {
+        background: #fff;
+        li a {
+            color: $sky;
+            &:hover {
+                background: $sky;
+                color: #fff;
+            }
+        }
+    }
 }
 footer {
     position: fixed;
