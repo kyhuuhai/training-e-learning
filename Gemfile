@@ -10,6 +10,7 @@ group :production do
 
   gem 'rails_12factor'
 end
+gem "puma"
 # Use SCSS for stylesheets
 gem 'sass-rails'
 # Use Uglifier as compressor for JavaScript assets

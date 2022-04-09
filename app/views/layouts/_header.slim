@@ -1,5 +1,6 @@
 header (class ="navbar navbar-expand-md navbar-dark fixed-top bg-dark")
   .container
+<<<<<<< HEAD
     = link_to "E-Learning",'#', class:"logo"
     nav (class = "collapse navbar-collapse")
       ul (class ="navbar-nav ml-auto")
@@ -14,3 +15,33 @@ header (class ="navbar navbar-expand-md navbar-dark fixed-top bg-dark")
             = link_to "Word course 03",'#', class: "dropdown-item"
         li.nav-item = link_to "User" ,'#', class: 'nav-link'
         li.nav-item = link_to "Login" ,'#', class: 'nav-link'
+=======
+    = link_to "E-Learning",root_path, id:"logo"
+    nav
+      ul (class ="nav navbar-nav navbar-right")
+        li = link_to "Home" ,root_path
+        li = link_to "Course" ,'#'
+        li.dropdown
+          a.dropdown-toggle data-toggle="dropdown" href="#"
+            |Word list
+            b.caret
+          ul.dropdown-menu.drop_link_to
+            li = link_to"Word course 01"
+            li = link_to"Word course 02"
+            li = link_to"Word course 03"
+        - if logged_in?
+          li= link_to"Users",users_path
+          li.dropdown
+            a.dropdown-toggle data-toggle="dropdown" href="#" 
+              | Account
+              b.caret
+            ul.dropdown-menu.drop_link_to
+              li= link_to"Profile", 'current_user'
+              li= link_to"Settings", 'edit_user_path(current_user)'
+              li.divider
+              li= button_to "Log out", logout_path,method:"delete", class: "btn_logout"
+        - else
+          li
+            = link_to"Log in", login_path
+
+>>>>>>> log-in and log-out
