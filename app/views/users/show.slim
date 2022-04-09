@@ -1,0 +1,8 @@
+- provide(:title, @user.name)
+.container
+    .row
+        aside.col-md-4
+            section.user_info
+                h1
+                    = image_tag @user.image.url if @user.image?
+                    = @user.name

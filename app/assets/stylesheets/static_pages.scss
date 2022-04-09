@@ -3,9 +3,11 @@
 
 $light-gray: #777;
 $gray-medium-light: #eaeaea;
-$sky: #2fa8ff;
 $while: #fff;
-// ---------------
+
+html {
+    font-size: 62.5%;
+}
 body {
     padding-top: 60px;
 }
@@ -17,44 +19,16 @@ textarea {
 }
 .center {
     text-align: center;
-    h1 {
-        margin-bottom: 10px;
-    }
-}
-/*typography*/
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    line-height: 1;
-}
-h1 {
-    font-size: 4em;
-    letter-spacing: -2px;
-    margin-bottom: 30px;
-    text-align: center;
-}
-h2 {
-    font-size: 1.2em;
-    letter-spacing: -1px;
-    margin-bottom: 30px;
-    text-align: center;
-    font-weight: normal;
-    color: $light-gray;
-}
-p {
-    font-size: 1.1em;
-    line-height: 1.7em;
 }
 // header
 .navbar-inverse {
-    background: $sky;
+    background: #000000b8;
+    margin-bottom: 0px;
+    border: none;
     #logo {
         float: left;
         margin-right: 10px;
-        font-size: 1.7em;
+        font-size: 1.7rem;
         color: $while;
         text-transform: uppercase;
         letter-spacing: -1px;
@@ -74,24 +48,54 @@ p {
     .drop_link_to {
         background: #fff;
         li a {
-            color: $sky;
+            color: #000000b8;
             &:hover {
-                background: $sky;
+                background: #000000b8;
                 color: #fff;
             }
         }
     }
 }
+
+section {
+    margin-top: -8px;
+    .container {
+        background: #efefef;
+        .introduction {
+            margin-top: 20px;
+
+            img {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            h1 {
+                text-align: center;
+            }
+            p {
+                font-size: 2rem;
+            }
+        }
+        .level {
+            p {
+                font-size: 1.6rem;
+            }
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            .level_item {
+                min-width: 500px;
+            }
+        }
+    }
+}
+
 footer {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin-top: 45px;
     padding: 10px;
+    margin-top: 12px;
     border-top: 1px solid #eaeaea;
-    color: $while;
-    background: $sky;
+    color: #fff;
+    background: #000000b8;
     height: 40px;
     small {
         float: left;
@@ -111,9 +115,9 @@ footer {
             float: left;
             margin-left: 15px;
             a {
-                color: $while;
+                color: #fff;
                 &:hover {
-                    color: $while;
+                    color: #fff;
                     opacity: 0.8;
                 }
             }
