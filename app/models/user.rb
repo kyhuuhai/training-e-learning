@@ -12,15 +12,13 @@ class User < ActiveRecord::Base
               uniqueness: {case_sensitive:false}
   has_secure_password
   PASSWORD_FORMAT = /\A
-      (?=.{8,})          # Must contain 8 or more characters
-      (?=.*\d)           # Must contain a digits
+      (?=.{8,})          
+      (?=.*\d)           
   /x
   validates :password,length: {:within => 8..40}, format: { with: PASSWORD_FORMAT }
   validate :image_size
   
   private
-
-  # Xac thuc kich thuoc cua 1 anh tai len.
     def image_size
       if image.size > 5.megabytes
         errors.add(:image,"should be less than 5MB")
