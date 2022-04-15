@@ -1,0 +1,18 @@
+.sidebar-sticky {
+    position: sticky;
+    top: 55px;
+    height: calc(100vh - 55px);
+    padding-top: 0.5rem;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.nav {
+    &-link {
+        color: #333;
+        font-size: 16px;
+
+        .oi {
+            margin-right: 10px;
+        }
+    }
+}
