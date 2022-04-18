@@ -2,6 +2,8 @@ class AdminController < ApplicationController
 	before_action :check_permission, only: [:index]
 	def index
 	end
+	def show
+	end
 
 	private
 		def check_permission
