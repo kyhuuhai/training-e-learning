@@ -9,8 +9,12 @@ class CoursesController < ApplicationController
 
   def words
     if logged_in?
-      @words = @course.words
-      render :words
+      if params[:commit]
+        @words =  Word.where('en_word ILIKE ?', "#{params[:commit]}%")
+      else
+        @words = @course.words
+        render :words
+      end
     else
       flash[:danger] = "Please login before viewing the list of words"
       redirect_to login_path
