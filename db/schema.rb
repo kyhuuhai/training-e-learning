@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_18_035557) do
+ActiveRecord::Schema.define(version: 2022_05_04_025407) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answers", force: :cascade do |t|
+    t.string "answer"
+    t.boolean "is_key"
+    t.bigint "question_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["question_id"], name: "index_answers_on_question_id"
+  end
 
   create_table "courses", force: :cascade do |t|
     t.string "name"
@@ -34,10 +43,18 @@ ActiveRecord::Schema.define(version: 2022_04_18_035557) do
     t.integer "score"
     t.bigint "lesson_id", null: false
     t.bigint "user_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "created_at", precision: 6, default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.datetime "updated_at", precision: 6, default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.index ["lesson_id"], name: "index_practices_on_lesson_id"
     t.index ["user_id"], name: "index_practices_on_user_id"
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.string "title"
+    t.bigint "lesson_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["lesson_id"], name: "index_questions_on_lesson_id"
   end
 
   create_table "relationships", force: :cascade do |t|
@@ -96,7 +113,7 @@ ActiveRecord::Schema.define(version: 2022_04_18_035557) do
     t.text "en_word"
     t.text "vi_word"
     t.text "description"
-    t.bigint "lesson_id"
+    t.bigint "lesson_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "course_id", null: false
@@ -104,9 +121,11 @@ ActiveRecord::Schema.define(version: 2022_04_18_035557) do
     t.index ["lesson_id"], name: "index_words_on_lesson_id"
   end
 
+  add_foreign_key "answers", "questions"
   add_foreign_key "lessons", "courses"
   add_foreign_key "practices", "lessons"
   add_foreign_key "practices", "users"
+  add_foreign_key "questions", "lessons"
   add_foreign_key "user_courses", "courses"
   add_foreign_key "user_courses", "users"
   add_foreign_key "user_lessons", "lessons"
